@@ -2,6 +2,7 @@ defmodule RekkidsAppWeb.Router do
   use RekkidsAppWeb, :router
 
   pipeline :api do
+    plug Corsica, origins: "*", allow_credentials: true
     plug :accepts, ["json"]
   end
 

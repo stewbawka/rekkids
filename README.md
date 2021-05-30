@@ -10,6 +10,11 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
 
+## Docker
+
+Install deps after doing docker build and getting image:
+`docker run -ti -v ${PWD}:/app <docker image> mix deps.get`
+
 ## Learn more
 
   * Official website: https://www.phoenixframework.org/
