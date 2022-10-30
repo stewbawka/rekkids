@@ -14,9 +14,14 @@ defmodule RekkidsApp.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: RekkidsApp.PubSub},
       # Start the Endpoint (http/https)
-      RekkidsAppWeb.Endpoint
+      RekkidsAppWeb.Endpoint,
       # Start a worker by calling: RekkidsApp.Worker.start_link(arg)
       # {RekkidsApp.Worker, arg}
+      %{
+        id: Kaffe.GroupMemberSupervisor,
+        start: {Kaffe.GroupMemberSupervisor, :start_link, []},
+        type: :supervisor
+      }
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

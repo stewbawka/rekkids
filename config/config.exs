@@ -27,6 +27,16 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
+# Kafka consumer config
+config :kaffe,
+  consumer: [
+    endpoints: ["kafka-service": 9092],
+    topics: ["users"],     # the topic(s) that will be consumed
+    consumer_group: "rekkids_users",   # the consumer group for tracking offsets in Kafka
+    message_handler: UsersConsumer,           # the module that will process messages
+    start_with_earliest_message: true 
+  ]
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"

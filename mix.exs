@@ -20,7 +20,7 @@ defmodule RekkidsApp.MixProject do
   def application do
     [
       mod: {RekkidsApp.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :kaffe]
     ]
   end
 
@@ -43,7 +43,8 @@ defmodule RekkidsApp.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:corsica, "~> 1.0"}
+      {:corsica, "~> 1.0"},
+      {:kaffe, "~> 1.9"}
     ]
   end
 
