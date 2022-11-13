@@ -31,7 +31,7 @@ config :phoenix, :json_library, Jason
 config :kaffe,
   consumer: [
     endpoints: ["kafka-service": 9092],
-    topics: ["users"],     # the topic(s) that will be consumed
+    topics: ["play.go_auth.users.user_saved"],     # the topic(s) that will be consumed
     consumer_group: "rekkids_users",   # the consumer group for tracking offsets in Kafka
     message_handler: UsersConsumer,           # the module that will process messages
     start_with_earliest_message: true 

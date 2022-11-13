@@ -44,7 +44,9 @@ defmodule RekkidsApp.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:corsica, "~> 1.0"},
-      {:kaffe, "~> 1.9"}
+      {:kaffe, "~> 1.9"},
+      {:protobuf, "~> 0.10.0"},
+      {:google_protos, "~> 0.1"}
     ]
   end
 
