@@ -10,6 +10,7 @@ defmodule RekkidsApp.Auth.User do
     field :source_id, :integer
     field :source_created_at, :utc_datetime_usec
     field :source_updated_at, :utc_datetime_usec
+    has_many :tracks, RekkidsApp.Music.Track
 
     timestamps()
   end

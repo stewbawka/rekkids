@@ -11,6 +11,7 @@ defmodule RekkidsApp.Music.Track do
     field :original_year, :integer
     field :title, :string
     field :year, :integer
+    belongs_to :user, RekkidsApp.Auth.User, type: :binary_id
 
     timestamps()
   end

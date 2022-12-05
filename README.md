@@ -17,11 +17,11 @@ https://devhints.io/phoenix-migrations
 
 # Generate Migrations
 Run this command locally (or shell into container and cp file to local):
-`mix ecto.gen.migration <model name>`
+`mix ecto.gen.migration <name>`
 
 # Run Migrations
 Shell into workload and then run:
-`mix ecto.migrate`
+`mix ecto.migrate --log-sql`
 
 ## Docker
 
