@@ -28,6 +28,21 @@ Shell into workload and then run:
 Install deps after doing docker build and getting image:
 `docker run -ti -v ${PWD}:/app <docker image> mix deps.get`
 
+## binary id to uuid
+
+```
+CREATE
+  FUNCTION uuid_of(uuid BINARY(16))
+  RETURNS VARCHAR(36)
+  RETURN LOWER(CONCAT(
+  SUBSTR(HEX(uuid), 1, 8), '-',
+  SUBSTR(HEX(uuid), 9, 4), '-',
+  SUBSTR(HEX(uuid), 13, 4), '-',
+  SUBSTR(HEX(uuid), 17, 4), '-',
+  SUBSTR(HEX(uuid), 21)
+));
+```
+
 ## Learn more
 
   * Official website: https://www.phoenixframework.org/
