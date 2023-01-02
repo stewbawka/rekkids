@@ -16,10 +16,13 @@ defmodule RekkidsApp.Music.Track do
     timestamps()
   end
 
+  @allowed_fields [:artist, :title, :bpm, :year, :original_year, :is_edit, :user_id]
+  @required_fields [:artist, :title, :bpm, :year, :original_year, :is_edit, :user_id]
+
   @doc false
   def changeset(track, attrs) do
     track
-    |> cast(attrs, [:artist, :title, :bpm, :year, :original_year, :is_edit])
-    |> validate_required([:artist, :title, :bpm, :year, :original_year, :is_edit])
+    |> cast(attrs, @allowed_fields)
+    |> validate_required(@required_fields)
   end
 end
