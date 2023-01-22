@@ -10,15 +10,21 @@ defmodule UsersConsumer do
 
   def handle_messages(messages) do
     for %{key: key, value: value} = message <- messages do
+      IO.puts("decoding message")
       struct = UserSchema.decode(value)
       IO.puts("received message")
+      IO.puts("another message")
+      IO.puts("struct.id")
+      IO.puts(struct.id)
+      IO.puts("//struct.id")
+
       map = Map.new(Enum.map(Map.from_struct(struct), fn
-        {:id, id} -> {:source_id, id}
         {:created_at, created_at} -> {:source_created_at, _protobuf_ts_to_datetime(created_at)}
         {:updated_at, updated_at} -> {:source_updated_at, _protobuf_ts_to_datetime(updated_at)}
         pair -> pair
       end))
-      with nil <- Auth.get_user_by(source_id: map[:source_id]) do
+      map = Map.put(map, :source_id, map[:id])
+      with nil <- Auth.get_user_by(id: map[:id]) do
         with {:ok, %User{} = user} <- Auth.create_user(map) do
           IO.inspect(user)
         else {:error, errors} ->
